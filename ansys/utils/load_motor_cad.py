@@ -26,6 +26,11 @@ def load_motor_cad(file_path):
         print(f"Không thể kiểm tra đường dẫn tệp: {e}")
     # --- KẾT THÚC PHẦN BỔ SUNG ---
 
+    try:
+        pymotorcad.MotorCAD_Methods.set_motorcad_exe(r"C:\Ansys_Motor-CAD\2025_1_1\Motor-CAD_2025_1_1.exe")
+    except:
+        pass
+
     # Logic gốc
     mcad = pymotorcad.MotorCAD(keep_instance_open=True)
     mcad.load_from_file(file_path)

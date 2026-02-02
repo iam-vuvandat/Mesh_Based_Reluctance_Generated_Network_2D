@@ -11,16 +11,17 @@ plot_cogging_torque = True
 plot_mesh_fem = True
 plot_mesh_rn  = True
 plot_var_airgap = True
+plot_var_magthick = True
 
 
 plt.style.use(['science', 'no-latex'])
 plt.rcParams.update({
-    'font.size': 20,           # Cỡ chữ chung (nhiều mục kế thừa từ đây)
-    'axes.titlesize': 30,      # Cỡ chữ Tiêu đề (thường lớn hơn một chút)
-    'axes.labelsize': 25,      # Cỡ chữ nhãn X, Y
-    'xtick.labelsize': 18,     # Cỡ chữ số trên trục X (thường nhỏ hơn)
-    'ytick.labelsize': 18,     # Cỡ chữ số trên trục Y
-    'legend.fontsize': 18,     # Cỡ chữ trong chú giải (legend)
+    'font.size': 20,         
+    'axes.titlesize': 30,     
+    'axes.labelsize': 25,     
+    'xtick.labelsize': 18,     
+    'ytick.labelsize': 18,    
+    'legend.fontsize': 18,    
 })
 colors = [
     # === Bảng màu Paul Tol (User cung cấp) ===
@@ -130,7 +131,7 @@ if plot_back_emf_phase == True:
 
 
     ax.set_xlabel(r'Rotor Position ($Deg$)')
-    ax.set_ylabel(r'Back EMF ($V$)')
+    ax.set_ylabel(r'Back EMF ($Wb$)')
     ax.set_title(r'Comparison of Back EMF (Phase) between FEM and MBGRN')
 
     ax.legend(frameon=True, loc='lower right',ncol=1)
@@ -148,7 +149,7 @@ if plot_cogging_torque == True:
     ax.plot(cogging_rn[-1],cogging_rn[0], label=r'Cogging Torque-MBGRN', linestyle=linestyles[0], linewidth=3.0,color = colors[8])
 
     ax.set_xlabel(r'Rotor Position ($Deg$)')
-    ax.set_ylabel(r'Cogging Torque ($Nm$)')
+    ax.set_ylabel(r'Cogging Torque ($Wb$)')
     ax.set_title(r'Comparison of Cogging Torque between FEM and MBGRN')
 
     ax.legend(frameon=True, loc='lower right',ncol=1)
@@ -211,11 +212,9 @@ if plot_mesh_rn == True:
     plt.show()
 
 if plot_var_airgap == True:
-    data_plot = load("data3925")
-    fig, ax = plt.subplots(figsize=(16, 10))
-    ax.plot(data_plot[-1], mesh_data_rn[0], label=r'Air Gap Flux Density', linestyle=linestyles[0], linewidth=3.0, color=colors[7], marker=markers[0], markevery=1)
+    from scenarios.simulate_with_airgap_variable import run
+    run()
 
-    ax2 = ax.twinx()
-    ax2.plot(mesh_data_rn[-1], mesh_data_rn[8], label=r'Computation Time', linestyle=linestyles[0], linewidth=1.0, color=colors[10], marker=markers[3], markevery=1)
-    ax.grid(True, which='both', linestyle='-', linewidth=0.05)
-    plt.show()
+if plot_var_magthick == True:
+    from scenarios.simulate_with_magnet_thicknees_variable import run
+    run()

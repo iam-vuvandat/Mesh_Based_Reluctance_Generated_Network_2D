@@ -6,7 +6,7 @@ import numpy as np
 from scipy.sparse.linalg import spsolve
 import time
 
-def fixed_point_iteration(reluctance_network, iterations=20, max_relative_residual=0.01, detail_debug=False,first_step = False):
+def fixed_point_iteration(reluctance_network, iterations=7, max_relative_residual=0.01, detail_debug=False,first_step = False):
     
     time_begin = time.perf_counter()
     if reluctance_network.optimization == "standard":

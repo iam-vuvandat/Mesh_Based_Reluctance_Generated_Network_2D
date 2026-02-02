@@ -1,0 +1,7 @@
+27/01/2026 11:26:36 PM : Created file: I:\My Drive\Document\Research\Mesh_Base_Reluctance_Network\python\reluctance_network15 - Copy\data\model\5\MessageLogs\messageLog_6428.txt
+27/01/2026 11:26:36 PM : Warning: file has been created with a newer version of Motor-CAD (v2025.1.1.1)
+Some parameters may not be loaded correctly.
+Please check input parameters are correct.
+27/01/2026 11:26:36 PM : Loaded file: I:\My Drive\Document\Research\Mesh_Base_Reluctance_Network\python\reluctance_network15 - Copy\data\model\5.mot
+27/01/2026 11:47:26 PM : Data has been edited.Do you want to save the file before closing? = No
+27/01/2026 11:47:27 PM : Minimum value of -1 is required for unknown
