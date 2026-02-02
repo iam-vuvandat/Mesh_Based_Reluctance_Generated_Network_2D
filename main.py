@@ -157,59 +157,12 @@ if plot_cogging_torque == True:
     plt.show()
 
 if plot_mesh_fem == True:
-# mesh variable fem 
-    mesh_data_fem = load("data0056")
-    fig, ax = plt.subplots(figsize=(16, 10))
-
-    ax.plot(mesh_data_fem[-1], mesh_data_fem[0], label=r'Air Gap Flux Density', linestyle=linestyles[0], linewidth=3.0, color=colors[7], marker=markers[0], markevery=1)
-    ax.plot(mesh_data_fem[-1], mesh_data_fem[3], label=r'Flux Linkage', linestyle=linestyles[0], linewidth=3.0, color=colors[8], marker=markers[1], markevery=1)
-    ax.plot(mesh_data_fem[-1], mesh_data_fem[6], label=r'Cogging Torque', linestyle=linestyles[0], linewidth=3.0, color=colors[9], marker=markers[2], markevery=1)
-
-    ax2 = ax.twinx()
-    ax2.set_ylim(0, 4000)
-    ax2.set_ylabel(r'Computation Time $(s)$')
-    ax2.plot(mesh_data_fem[-1], mesh_data_fem[7], label=r'Computation Time', linestyle=linestyles[0], linewidth=1.0, color=colors[10], marker=markers[3], markevery=1)
-    
-    ax.set_ylim(bottom=0)
-    ax2.set_ylim(bottom=0)
-
-    ax.set_xlabel(r'Elements Number')
-    ax.set_ylabel(r'NRMSE ($\%$)')
-    ax.set_title(r'Dependence of Error on the Number of Mesh Elements (FEM)')
-
-    h1, l1 = ax.get_legend_handles_labels()
-    h2, l2 = ax2.get_legend_handles_labels()
-    ax.legend(handles=h1 + h2, labels=l1 + l2, frameon=True, loc='upper left', ncol=1)
-
-    ax.grid(True, which='both', linestyle='-', linewidth=0.05)
-    plt.show()
+    from scenarios.simulate_with_mesh_variable import run
+    run()
 
 if plot_mesh_rn == True:
-    mesh_data_rn = load("data_9973")
-    fig, ax = plt.subplots(figsize=(16, 10))
-
-    ax.plot(mesh_data_rn[-1], mesh_data_rn[0], label=r'Air Gap Flux Density', linestyle=linestyles[0], linewidth=3.0, color=colors[7], marker=markers[0], markevery=1)
-    ax.plot(mesh_data_rn[-1], mesh_data_rn[3], label=r'Flux Linkage', linestyle=linestyles[0], linewidth=3.0, color=colors[8], marker=markers[1], markevery=1)
-    ax.plot(mesh_data_rn[-1], mesh_data_rn[6], label=r'Cogging Torque', linestyle=linestyles[0], linewidth=3.0, color=colors[9], marker=markers[2], markevery=1)
-
-    ax2 = ax.twinx()
-    ax2.set_ylim(0, 30)
-    ax2.set_ylabel(r'Computation Time $(s)$')
-    ax2.plot(mesh_data_rn[-1], mesh_data_rn[7], label=r'Computation Time', linestyle=linestyles[0], linewidth=1.0, color=colors[10], marker=markers[3], markevery=1)
-    
-    ax.set_ylim(bottom=0)
-    ax2.set_ylim(bottom=0)
-
-    ax.set_xlabel(r'Elements Number')
-    ax.set_ylabel(r'NRMSE ($\%$)')
-    ax.set_title(r'Dependence of Error on the Number of Mesh Elements (MBGRN)')
-
-    h1, l1 = ax.get_legend_handles_labels()
-    h2, l2 = ax2.get_legend_handles_labels()
-    ax.legend(handles=h1 + h2, labels=l1 + l2, frameon=True, loc='upper left', ncol=1)
-
-    ax.grid(True, which='both', linestyle='-', linewidth=0.05)
-    plt.show()
+    from scenarios.rn_simulate_with_mesh_variable import run
+    run()
 
 if plot_var_airgap == True:
     from scenarios.simulate_with_airgap_variable import run
