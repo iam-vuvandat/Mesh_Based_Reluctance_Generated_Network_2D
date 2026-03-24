@@ -1,6 +1,6 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from matplotlib.pylab import False_
+
 import matplotlib.pyplot as plt
 import numpy as np
 import ansys.motorcad.core as pymotorcad
@@ -24,7 +24,7 @@ else:
 
 run_rn = 1
 if run_rn:
-    spm = SPM(air_gap=airgap * 1e-3)
+    spm = SPM(air_gap=airgap * 1e-3, optimization = "standard")
     rn_data = spm.solve_open_circuit(show_plot=False, debug=True,quality = "medium")
     save(rn1=rn_data)
 else:

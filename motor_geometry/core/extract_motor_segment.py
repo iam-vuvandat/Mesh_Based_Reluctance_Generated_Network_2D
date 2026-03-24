@@ -52,7 +52,7 @@ def extract_motor_segment(motor_input,rotor_angle_offset,stator_angle_offset):
     arc_pole = 2 * pi / p
 
     stator_angle_offset = -(stator_angle_offset + arc_pole/2)
-
+    
     rotor_yoke_in_line = create_arc(r_yoke_in, 0, arc_pole)
     rotor_yoke_out_line = create_arc(r_yoke_out, 0, arc_pole)
     rotor_yoke_line_left = create_line_from_points(get_begin_point(rotor_yoke_in_line),

@@ -44,7 +44,9 @@ class SPM:
                  number_of_turns_per_coil=25,
                  winding_type="concentrated",
                  phase_number=3,
-                 shaft_speed = 1500 # rpm
+                 shaft_speed = 1500, # rpm
+                 
+                 i_rms = 20.0 #A
                  ):
 
         # Tên động cơ
@@ -84,6 +86,9 @@ class SPM:
 
         #shaft 
         self.shaft_speed = shaft_speed
+        
+        # drive data
+        self.i_rms = i_rms
 
         # --- Slot/pole fraction rút gọn ---
         self.slot_number_reduced, self.pole_pair_number_reduced = simplify_fraction(self.slot_number, self.pole_pair_number)

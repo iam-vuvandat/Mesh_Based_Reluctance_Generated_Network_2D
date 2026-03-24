@@ -185,12 +185,21 @@ class ReluctanceNetwork:
             + "second_dimension": dịch chuyển các phần tử theo hàng (theo i)
         - ring_shift: tuple (begin, end): chỉ các hàng hoặc cột trong khoảng này mới bị xoay
         """
+
+        # Can thiệp vào rotor_position
+        if self.cyclic_type == "first_dimension":
+            self.rotor_position = self.rotor_position +( self.theta_resolution * direction)
+        
+        else:
+            pass
+
+        
         if self.optimization =="standard":
             number_of_rows, number_of_cols = self.size
             ring_begin, ring_end = ring_shift
 
             if self.cyclic_type == "first_dimension":
-                self.rotor_position = self.rotor_position +( self.theta_resolution * direction)
+                
                 # Dịch chuyển theo chiều ngang (các cột trong từng hàng)
                 for i in range(ring_begin, ring_end + 1):
                     # lấy các element trong hàng i
