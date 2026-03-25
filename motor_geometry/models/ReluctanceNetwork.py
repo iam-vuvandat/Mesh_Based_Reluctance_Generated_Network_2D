@@ -21,6 +21,7 @@ class ReluctanceNetwork:
         self.material_database = MaterialDataBase()
         self.theta_resolution = grid.delta_theta
         self.rotor_position = 0.0
+        self.material_relaxation = 1.0
 
         for segment in segments:
             compute_segment_grid_dimensions(segment,self.grid)

@@ -1,5 +1,6 @@
 import numpy as np
 from material_data.models.MaterialDataBase import MaterialDataBase
+from motor_geometry.models.Drive import Drive
 from motor_geometry.utils.simplify_fraction import simplify_fraction
 from solver.utils.create_column_array import create_column_array
 from motor_geometry.utils.cogging_period_angle import cogging_period_angle
@@ -156,3 +157,5 @@ class SPM:
         return extract_motor_segment(motor_input= self, stator_angle_offset= stator_angle_offset,rotor_angle_offset = rotor_angle_offset)
 
         
+    def create_drive(self):
+        self.drive = Drive(motor = self)
