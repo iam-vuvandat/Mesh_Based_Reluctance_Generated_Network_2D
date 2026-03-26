@@ -3,6 +3,7 @@ setup()
 from data.utils.data_helper import load
 import matplotlib.pyplot as plt
 import scienceplots
+from solver.utils.analyze_fourier_array import analyze_fourier_array
 
 plot_airgap_flux_density = True
 plot_flux_linkage = True
